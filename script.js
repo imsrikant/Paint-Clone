@@ -59,6 +59,7 @@ eraser.addEventListener('click', () => {
   brushIcon.style.color = 'white';
   eraser.style.color = 'black';
   activeToolEl.textContent = 'Eraser';
+  currentColor = bucketColor;
   currentSize = 50;
 });
 
@@ -136,19 +137,19 @@ function getMousePosition(event) {
 canvas.addEventListener('mousedown', (event) => {
   isMouseDown = true;
   const currentPosition = getMousePosition(event);
-    context.moveTo(currentPosition.x, currentPosition.y);
-    context.beginPath();
-    context.lineWidth = currentSize;
-    context.lineCap = 'round';
-    context.strokeStyle = currentColor;
+  context.moveTo(currentPosition.x, currentPosition.y);
+  context.beginPath();
+  context.lineWidth = currentSize;
+  context.lineCap = 'round';
+  context.strokeStyle = currentColor;
 });
 
 // Mouse Move
 canvas.addEventListener('mousemove', (event) => {
   if (isMouseDown) {
     const currentPosition = getMousePosition(event);
-      context.lineTo(currentPosition.x, currentPosition.y);
-      context.stroke();
+    context.lineTo(currentPosition.x, currentPosition.y);
+    context.stroke();
     //   storeDrawn(
     //     currentPosition.x,
     //     currentPosition.y,
