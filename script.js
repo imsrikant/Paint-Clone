@@ -13,10 +13,13 @@ const downloadBtn = document.getElementById('download');
 const { body } = document;
 
 // Global Variables
-
+const canvas = document.createElement('canvas');
+const context = canvas.getContext('2d');
+canvas.id = 'canvas';
 let currentSize = 10;
 let bucketColor = '#FFFFFF';
 let currentColor = '#A51DAB';
+
 // let isEraser = false;
 // let isMouseDown = false;
 // let drawnArray = [];
@@ -172,7 +175,7 @@ canvas.addEventListener('mouseup', () => {
 //   // Active Tool
 //     activeToolEl.textContent = 'Canvas Loaded';
 //     setTimeout(switchToBrush, 1500);
-//   } 
+//   }
 
 // });
 
